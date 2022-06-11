@@ -10,5 +10,8 @@ export const logger = createLogger({
         new transports.Console(),
         new transports.File({ filename: logPath }),
     ],
-    format: format.json({ space: 4 }),
+    format: format.combine(
+        format.timestamp(),
+        format.json({ space: 4 }),
+    ),
 });

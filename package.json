@@ -8,7 +8,8 @@
     "prebuild": "rimraf dist && npm run lint:fix",
     "build": "tsc",
     "start": "node dist/index.js",
-    "deploy:commands": "node dist/deploy-commands.js"
+    "deploy:commands": "node dist/deploy-commands.js",
+    "clean:logs": "rimraf logs/*"
   },
   "author": "JB Ladera <minidomou@gmail.com>",
   "license": "MIT",

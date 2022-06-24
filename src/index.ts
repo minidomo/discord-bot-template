@@ -1,7 +1,7 @@
 import { Client, Intents } from 'discord.js';
 import { commands } from './commands';
 import { token } from './config';
-import { logger } from './logger';
+import { logger } from './util';
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] }) as Client<true>;
 
@@ -16,11 +16,11 @@ client.on('messageCreate', message => {
 });
 
 client.on('interactionCreate', interaction => {
-    if (!interaction.isCommand()) return;
-
-    const command = commands.get(interaction.commandName);
-    if (command) {
-        command.execute(interaction);
+    if (interaction.isCommand()) {
+        const command = commands.get(interaction.commandName);
+        if (command && command.isPermitted(interaction)) {
+            command.execute(interaction);
+        }
     }
 });
 

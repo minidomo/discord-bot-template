@@ -1,6 +1,5 @@
-import * as test from './test';
-import type { Command } from '../types';
+import * as ping from './ping';
 
-export const commands: Map<string, Command> = new Map();
+export const commands: Map<string, BotTypes.Command> = new Map();
 commands
-    .set(test.data.name, test);
+    .set(ping.data.name, ping);

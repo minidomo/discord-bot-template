@@ -1,6 +1,5 @@
 // Contents from TypeScript ESLint and discord.js's configuration
-
-module.exports = {
+{
     "root": true,
     "parser": "@typescript-eslint/parser",
     "plugins": [

@@ -7,12 +7,6 @@ const filename = `${dayjs().format('YYYYMMDD-HHmmss')}.log`;
 const logPath = join(logDir, filename);
 
 export const logger = createLogger({
-    transports: [
-        new transports.Console(),
-        new transports.File({ filename: logPath }),
-    ],
-    format: format.combine(
-        format.timestamp(),
-        format.json({ space: 4 }),
-    ),
+    transports: [new transports.Console(), new transports.File({ filename: logPath })],
+    format: format.combine(format.timestamp(), format.json({ space: 4 })),
 });

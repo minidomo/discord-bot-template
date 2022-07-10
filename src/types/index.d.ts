@@ -3,7 +3,6 @@ import { CommandInteraction } from 'discord.js';
 
 declare global {
     namespace BotTypes {
-
         interface Command {
             data: SlashCommandBuilder;
             execute: (interaction: CommandInteraction) => Promise<void>;

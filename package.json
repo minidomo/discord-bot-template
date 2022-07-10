@@ -1,33 +1,35 @@
 {
-  "name": "discord-bot-template",
-  "version": "1.0.0",
-  "main": "dist/index.js",
-  "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "prebuild": "rimraf dist && npm run lint:fix",
-    "build": "tsc",
-    "start": "node dist/index.js",
-    "deploy:commands": "node dist/deploy-commands.js",
-    "clean:logs": "rimraf logs/*"
-  },
-  "author": "JB Ladera <minidomou@gmail.com>",
-  "license": "MIT",
-  "description": "",
-  "dependencies": {
-    "@discordjs/builders": "^0.15.0",
-    "@discordjs/rest": "^0.5.0",
-    "dayjs": "^1.11.3",
-    "discord-api-types": "^0.33.5",
-    "discord.js": "^13.8.0",
-    "winston": "^3.7.2"
-  },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.27.1",
-    "@typescript-eslint/parser": "^5.27.1",
-    "eslint": "^8.17.0",
-    "eslint-plugin-import": "^2.26.0",
-    "rimraf": "^3.0.2",
-    "typescript": "^4.7.3"
-  }
+    "name": "discord-bot-template",
+    "version": "1.0.0",
+    "main": "dist/index.js",
+    "scripts": {
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "prebuild": "rimraf dist && npm run lint:fix",
+        "build": "tsc",
+        "start": "node dist/index.js",
+        "deploy:commands": "node dist/deploy-commands.js",
+        "clean:logs": "rimraf logs/*"
+    },
+    "author": "JB Ladera <minidomou@gmail.com>",
+    "license": "MIT",
+    "description": "",
+    "dependencies": {
+        "@discordjs/builders": "^0.15.0",
+        "@discordjs/rest": "^0.5.0",
+        "dayjs": "^1.11.3",
+        "discord-api-types": "^0.36.1",
+        "discord.js": "^13.8.1",
+        "winston": "^3.8.1"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.30.5",
+        "@typescript-eslint/parser": "^5.30.5",
+        "eslint": "^8.19.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-import": "^2.26.0",
+        "prettier": "^2.7.1",
+        "rimraf": "^3.0.2",
+        "typescript": "^4.7.4"
+    }
 }

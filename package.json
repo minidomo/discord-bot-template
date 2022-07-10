@@ -7,8 +7,10 @@
         "lint:fix": "eslint . --fix",
         "prebuild": "rimraf dist && npm run lint:fix",
         "build": "tsc",
-        "start": "node dist/index.js",
-        "deploy:commands": "node dist/deploy-commands.js",
+        "start:dev": "node -r dotenv/config dist/index.js -- --dev",
+        "start:prod": "node -r dotenv/config dist/index.js -- --prod",
+        "commands:dev": "node -r dotenv/config dist/deploy-commands.js -- --dev",
+        "commands:prod": "node -r dotenv/config dist/deploy-commands.js -- --prod",
         "clean:logs": "rimraf logs/*"
     },
     "author": "JB Ladera <minidomou@gmail.com>",
@@ -20,9 +22,11 @@
         "dayjs": "^1.11.3",
         "discord-api-types": "^0.36.1",
         "discord.js": "^13.8.1",
+        "dotenv": "^16.0.1",
         "winston": "^3.8.1"
     },
     "devDependencies": {
+        "@types/node": "^18.0.3",
         "@typescript-eslint/eslint-plugin": "^5.30.5",
         "@typescript-eslint/parser": "^5.30.5",
         "eslint": "^8.19.0",

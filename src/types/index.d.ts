@@ -1,19 +1,39 @@
-import { SlashCommandBuilder } from '@discordjs/builders';
-import { CommandInteraction } from 'discord.js';
+import {
+    SlashCommandBuilder,
+    SlashCommandSubcommandsOnlyBuilder,
+    SlashCommandSubcommandBuilder,
+} from '@discordjs/builders';
+import { CommandInteraction, ModalSubmitInteraction, MessageEmbed } from 'discord.js';
 
 declare global {
     namespace BotTypes {
-        interface Command {
-            data: SlashCommandBuilder;
-            execute: (interaction: CommandInteraction) => Promise<void>;
+        type CustomId = string;
+        type Unique = string;
+
+        interface BaseCommand<T> {
+            data: T;
+            execute: (interaction: CommandInteraction, unique: Unique) => Promise<void>;
             isPermitted: (interaction: CommandInteraction) => boolean;
         }
 
-        interface CommandContainer {
-            [key: string]: Command;
+        type Command = BaseCommand<SlashCommandBuilder | SlashCommandSubcommandsOnlyBuilder>;
+        type Subcommand = BaseCommand<SlashCommandSubcommandBuilder>;
+
+        // Pages
+        interface PagesOptions {
+            interaction: CommandInteraction | ModalSubmitInteraction;
+            unique: Unique;
+            lines: string[];
+            itemName: string;
+            embed?: MessageEmbed;
+            linesPerPage?: number;
+            idleTime?: number;
         }
 
-        type CustomId = string;
-        type Unique = string;
+        interface PagesStartOptions {
+            page?: number;
+            ephemeral?: boolean;
+            deferred?: boolean;
+        }
     }
 }
